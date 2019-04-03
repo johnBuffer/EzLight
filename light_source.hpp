@@ -12,12 +12,12 @@ struct LightSource
 	{}
 
 	LightSource(const up::Vec2& pos, float r) :
-		position(pos),
+		position(&pos),
 		radius(r),
 		color(sf::Color::White)
 	{}
 
-	up::Vec2 position;
+	const up::Vec2* position;
 	float radius;
 	sf::Color color;
 };

@@ -54,14 +54,14 @@ private:
 		constexpr uint32_t point_count(32);
 
 		sf::VertexArray va(sf::TriangleFan, point_count);
-		va[0].position = sf::Vector2f(source.position.x, source.position.y);
+		va[0].position = sf::Vector2f(source.position->x, source.position->y);
 		va[0].color = sf::Color::White;
 
 		for (uint32_t i(0); i < point_count - 1; ++i)
 		{
 			float angle(i*2.0f*PI / float(point_count-2));
-			float x(source.position.x + source.radius * cos(angle));
-			float y(source.position.y + source.radius * sin(angle));
+			float x(source.position->x + source.radius * cos(angle));
+			float y(source.position->y + source.radius * sin(angle));
 			
 			va[i+1].position = sf::Vector2f(x, y);
 			va[i+1].color = sf::Color(0, 0, 0, 0);
@@ -87,7 +87,7 @@ private:
 
 	void addCasterShadow(const LightSource& source, const up::Segment& segment, sf::VertexArray& va)
 	{
-		const up::Vec2& center(source.position);
+		const up::Vec2& center(*source.position);
 		const up::Vec2& p1(segment.p1);
 		const up::Vec2& p2(segment.p2);
 
