@@ -54,6 +54,12 @@ struct Vec2
 		y += v.y;
 	}
 
+	void operator*=(float f)
+	{
+		x *= f;
+		y *= f;
+	}
+
 	float x, y;
 
 private:
