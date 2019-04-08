@@ -60,6 +60,11 @@ struct Vec2
 		y *= f;
 	}
 
+	float dot(const up::Vec2& v)
+	{
+		return x * v.x + y * v.y;
+	}
+
 	float x, y;
 
 private:
@@ -89,6 +94,11 @@ inline Vec2 operator*(float f, const Vec2& v)
 inline Vec2 operator*(const Vec2& v, float f)
 {
 	return Vec2(f*v.x, f*v.y);
+}
+
+inline const Vec2 getMidPoint(const Vec2& v1, const Vec2& v2)
+{
+	return (v1 + v2)*0.5f;
 }
 
 struct Segment
